@@ -20,7 +20,7 @@ class App extends Component {
   }
 
   updateSearch(event) {
-    this.setState({search: event.target.value.substr(0, 20)});
+    this.setState({search: event.target.value.substr(0, 10)});
   }
   
   render() {
@@ -33,8 +33,8 @@ class App extends Component {
     )
 
     return (
-      <div>
-        <input type="text"
+      <div className='employeeTable'>
+        <input type="text" placeholder="Search table..."
           value={this.state.search}
           onChange={this.updateSearch.bind(this)} 
         />

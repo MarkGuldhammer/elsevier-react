@@ -20,8 +20,8 @@ export default function EmployeeTable(props) {
           <th>
             <button onClick={() => props.sortBy('email')}>Email</button>
           </th>
-          <th>Is Active</th>
-          <th>Picture</th>
+          <th>Active</th>
+          <th></th>
         </tr>
         </thead>
           <tbody>
@@ -34,7 +34,7 @@ export default function EmployeeTable(props) {
                   <td>{row.company}</td>
                   <td>{row.email}</td>
                   <td>{row.isActive ? 'true' : 'false'}</td>
-                  <td><img src={row.picture} alt=''/></td>
+                  <td><img src={row.picture} alt={row.name} title={row.name} /></td>
                 </tr>
               ))
             }

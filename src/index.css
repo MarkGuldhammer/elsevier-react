@@ -7,7 +7,52 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.employeeTable {
+  width: 80%;
+  margin-top: 20px;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 20px;
+}
+
+.employeeTable input {
+  border: 1px solid lightgray;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.employeeTable table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.employeeTable table td {
+  padding: 5px;
+}
+
+.employeeTable table th {
+  background-color: gray;
+  border: 1px solid white;
+  padding: 5px;
+}
+
+.employeeTable table th button {
+  background: none;
+  border: 0px;
+  color: black;
+  cursor: pointer;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.employeeTable table tbody {
+  border: 1px solid lightgray;
+}
+
+.employeeTable table tbody tr:nth-child(even) {
+    background-color: lightgray;
 }
