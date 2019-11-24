@@ -22,14 +22,9 @@ class EmployeeList extends Component {
   render() {
     return (
       <div>
-        <h1>hello world employee list</h1>
         <table>
           <TableHeader />
-          <tbody>
-          {EmployeeData.map((item, index) => {
-            return <EmployeeDetail data={item} key={`item-list-key ${index}`}/>
-          })}
-          </tbody>
+          <tbody><EmployeeDetail data={EmployeeData}/></tbody>
         </table>
       </div>
     )
