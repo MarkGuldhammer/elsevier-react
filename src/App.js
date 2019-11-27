@@ -7,7 +7,8 @@ class App extends Component {
     super(props);
     this.state = {
       data: EmployeeData,
-      search: ''
+      search: '',
+      lastSortedKey: ''
     };
     
     this.sortBy = this.sortBy.bind(this);
@@ -15,8 +16,19 @@ class App extends Component {
 
   sortBy(key) {
     this.setState({
-      data: EmployeeData.sort( (a, b) => (a[key] > b[key]) ? 1 : ((b[key] > a[key]) ? -1 : 0))
+      data: EmployeeData.sort((a, b) => (a[key] > b[key]) ? 1 : -1)
     });
+
+    if (this.state.lastSortedKey === key) {
+      this.setState({
+        data: this.state.data.reverse(),
+        lastSortedKey: ''
+      });
+    } else {
+      this.setState({
+        lastSortedKey: key
+      });
+    }
   }
 
   updateSearch(event) {
