@@ -8,11 +8,9 @@ body {
 }
 
 .employeeTable {
-  width: 80%;
-  margin-top: 20px;
-  margin-left: 10%;
-  margin-right: 10%;
-  margin-bottom: 20px;
+  margin: auto;
+  width: 60%;
+  padding: 10px;
 }
 
 .employeeTable input {
