@@ -20,7 +20,9 @@ export default function EmployeeTable(props) {
           <th>
             <button onClick={() => props.sortBy('email')}>Email</button>
           </th>
-          <th>Active</th>
+          <th>
+            <button onClick={() => props.sortBy('isActive')}>Active</button>
+          </th>
           <th></th>
         </tr>
         </thead>
