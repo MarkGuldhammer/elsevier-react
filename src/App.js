@@ -12,6 +12,7 @@ class App extends Component {
     };
 
     this.timeout = 0;
+    this.delay = 500;
     
     this.sortBy = this.sortBy.bind(this);
   }
@@ -21,6 +22,7 @@ class App extends Component {
       data: EmployeeData.sort((a, b) => (a[key] > b[key]) ? 1 : -1)
     });
 
+    // If trying to the same column twice, reverse it.
     if (this.state.lastSortedKey === key) {
       this.setState({
         data: this.state.data.reverse(),
@@ -36,13 +38,15 @@ class App extends Component {
   doSearch(event) {
     const searchString = event.target.value;
 
+    // If timeout is set, clear it.
     if (this.timeout) {
       clearTimeout(this.timeout)
     }
 
+    // Set new timeout and search.
     this.timeout = setTimeout(() => {
       this.setState({search: searchString});
-    }, 500);
+    }, this.delay);
   }
   
   render() {
