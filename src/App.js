@@ -10,6 +10,8 @@ class App extends Component {
       search: '',
       lastSortedKey: ''
     };
+
+    this.timeout = 0;
     
     this.sortBy = this.sortBy.bind(this);
   }
@@ -31,8 +33,16 @@ class App extends Component {
     }
   }
 
-  updateSearch(event) {
-    this.setState({search: event.target.value.substr(0, 10)});
+  doSearch(event) {
+    const searchString = event.target.value;
+
+    if (this.timeout) {
+      clearTimeout(this.timeout)
+    }
+
+    this.timeout = setTimeout(() => {
+      this.setState({search: searchString});
+    }, 500);
   }
   
   render() {
@@ -46,10 +56,7 @@ class App extends Component {
 
     return (
       <div className='employeeTable'>
-        <input type="text" placeholder="Search table..."
-          value={this.state.search}
-          onChange={this.updateSearch.bind(this)} 
-        />
+        <input type="text" placeholder="Search table..." onChange={this.doSearch.bind(this)} />
         <EmployeeTable 
           data={filteredData}
           sortBy={this.sortBy}
